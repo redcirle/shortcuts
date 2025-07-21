@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<base href="./"/>
+<title>Red Circle Cat</title>
+<link href="style.css" rel="stylesheet"/>
+<link href="https://unpkg.com/swiper/swiper-bundle.min.css" rel="stylesheet"/>
+</head>
+<body>
+
+<div class="background-wall">
+  <div class="wall-brick-bg"></div>
+</div>
+
+<div class="logo">
+<img alt="LOGO图" src="images/logo.png"/>
+</div>
+<div class="tagline" id="tagline"></div>
+<div class="swiper-container">
+<div class="swiper-wrapper">
+<div class="swiper-slide">
+<img alt="Slide 1" src="images/shortcut1.png"/>
+<div class="card-content">
+<a class="card-button lavender-glass" href="https://www.icloud.com/shortcuts/xxx1" onclick="return confirm('是否前往下载“快捷启动录音”？');" target="_blank">快捷启动录音</a>
+</div>
+</div>
+<div class="swiper-slide">
+<img alt="Slide 2" src="images/shortcut2.png"/>
+<div class="card-content">
+<a class="card-button rose-to-glass" href="https://www.icloud.com/shortcuts/xxx2" onclick="return confirm('是否前往下载“定时提醒助手”？');" target="_blank">定时提醒助手</a>
+</div>
+</div>
+<div class="swiper-slide">
+<img alt="Slide 3" src="images/shortcut3.png"/>
+<div class="card-content">
+<a class="card-button redblue-glass" href="https://www.icloud.com/shortcuts/xxx3" onclick="return confirm('是否前往下载“启动背景音乐”？');" target="_blank">启动背景音乐</a>
+</div>
+</div>
+<div class="swiper-slide">
+<img alt="Slide 4" src="images/shortcut4.png"/>
+<div class="card-content">
+<a class="card-button rose-to-glass" href="https://www.icloud.com/shortcuts/xxx4" onclick="return confirm('是否前往下载“备忘录转语音”？');" target="_blank">备忘录转语音</a>
+</div>
+</div>
+<div class="swiper-slide">
+  <img alt="Slide 5" src="images/placeholder.png"/>
+  <div class="card-content">
+    <a class="card-button lavender-glass" href="javascript:void(0);">更多内容敬请期待</a>
+  </div>
+</div>
+</div>
+<div class="swiper-pagination"></div>
+</div>
+<!-- 最新稳定版 Swiper 11，来自 jsDelivr CDN，兼容 loop + coverflow -->
+<link href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" rel="stylesheet" />
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script src="script.js"></script>
+
+<footer><footer>
+  <div class="footer-button-group">
+    
+    <!-- 卡片模块 1 -->
+    <div class="footer-shortcut-card">
+      <a class="footer-button glass" href="javascript:void(0);" onclick="toggleWeChatPublicQR()">微信公众号</a>
+      <a class="footer-button clown-home-button" href="javascript:void(0);" onclick="confirmAndGoJoker()">小丑猫主页</a>
+    </div>
+
+    <!-- 卡片模块 2 -->
+    <div class="footer-shortcut-card">
+      <a class="footer-button red-footer-button" href="javascript:void(0);" onclick="confirmAndGoXHS()">小红书主页</a>
+      <a class="footer-button purple-striped-button" href="javascript:void(0);" onclick="confirmAndMail()">联系我们</a>
+    </div>
+
+    <!-- 后续你可继续添加更多模块 -->
+
+  </div>
+</footer></body>
+</html>

@@ -1,0 +1,691 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+  background-color: #ffffff;
+  color: #333;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+.logo img {
+  margin-top: 16px;
+  width: 288px;
+  height: auto;
+}
+.tagline {
+  font-size: 18px;
+  font-weight: bold;
+  margin: 24px 0;
+  min-height: 24px;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.swiper-container {
+  width: 100%;
+  padding-top: 20px;
+  padding-bottom: 40px;
+}
+
+.swiper-slide {
+  width: 80vw !important;   /* 或用固定值如 260px */
+  max-width: 280px;
+  aspect-ratio: 13 / 18;
+  border-radius: 16px;
+  overflow: hidden;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+.swiper-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.card-button {
+  padding: 10px 20px;
+  font-size: 14px;
+  min-width: 100px;
+  max-width: 120px; /* 限制最大宽度 */
+  width: fit-content; /* 自适应内容 */
+  display: inline-block;
+  text-align: center;
+  border-radius: 24px;
+  text-decoration: none;
+  white-space: nowrap;
+}
+/* 下载按钮悬停效果 */
+.card-button:hover {
+  transform: translateY(-2px);
+  opacity: 0.9;
+}
+/*卡片内 红色按钮 */
+.card-button.red {
+  background-color: #FF2D55;
+}
+/* 卡片内按钮｜默认状态：玫瑰粉背景 + 白字 */
+.card-button.rose-to-glass {
+  background-color: #e94c89;
+  color: white;
+  border: none;
+  border-radius: 24px;
+  padding: 10px 24px;
+  font-size: 14px;
+  text-align: center;
+  min-width: 120px;
+  max-width: 180px;
+  width: fit-content;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+}
+
+/* Hover 状态：玻璃白背景 + 玫瑰粉字 + 加粗放大 + 更深阴影 */
+.card-button.rose-to-glass:hover,
+.card-button.rose-to-glass.auto-hover {
+  background: rgba(255, 255, 255, 0.25);
+  color: #e94c89;
+  font-weight: bold;
+  font-size: 14.7px; /* 放大约 5% */
+  backdrop-filter: blur(8px) saturate(1.3);
+  -webkit-backdrop-filter: blur(8px) saturate(1.3);
+  box-shadow: 0 6px 24px rgba(233, 76, 137, 0.45); /* 更重的玫瑰粉阴影 */
+  transform: translateY(-2px);
+}
+
+/* 卡片按钮：柔紫 + 玻璃悬浮风格 *//* 默认状态：柔紫背景 + 白字 */
+.card-button.lavender-glass {
+  background-color: #d2b8da;       /* 柔和浅紫色 */
+  color: white;                    /* 白字 */
+  border: none;
+  border-radius: 24px;
+  padding: 10px 24px;
+  font-size: 14px;
+  text-align: center;
+  min-width: 120px;
+  max-width: 180px;
+  width: fit-content;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05); /* 初始轻阴影 */
+}
+
+/* Hover 状态：玻璃白背景 + 紫色字 + 加粗 + 放大 + 更深阴影 */
+.card-button.lavender-glass:hover,
+.card-button.lavender-glass.auto-hover {
+  background: rgba(255, 255, 255, 0.25);     /* 半透明白背景 */
+  color: #d2b8da;                            /* 紫色文字 */
+  font-weight: bold;
+  font-size: 14.7px;                         /* 字体放大约 5% */
+  backdrop-filter: blur(8px) saturate(1.3);  /* 毛玻璃模糊 + 饱和 */
+  -webkit-backdrop-filter: blur(8px) saturate(1.3);
+  box-shadow: 0 6px 24px rgba(210, 184, 218, 0.35); /* 加深阴影 */
+  transform: translateY(-2px);
+}
+
+/* 卡片按钮：蓝玻璃背景 → Hover 白底蓝字 + 加粗放大 */
+.card-button.redblue-glass {
+  background: rgba(121, 192, 240, 0.25);
+  color: #e7828b;
+  border: none;
+  border-radius: 24px;
+  padding: 10px 24px;
+  font-size: 14px;
+  text-align: center;
+  min-width: 120px;
+  max-width: 180px;
+  width: fit-content;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(8px) saturate(1.3);
+  -webkit-backdrop-filter: blur(8px) saturate(1.3);
+  box-shadow: 0 4px 10px rgba(121, 192, 240, 0.25);
+}
+
+/* Hover 状态：纯白背景 + 蓝字 + 字体加粗 & 放大 + 深阴影 */
+.card-button.redblue-glass:hover,
+.card-button.redblue-glass.auto-hover {
+  background-color: #ffffff;
+  color: #79c0f0;
+  font-weight: bold;
+  font-size: 14.7px;  /* 放大约 5% */
+  box-shadow: 0 6px 24px rgba(121, 192, 240, 0.4);
+  transform: translateY(-2px);
+}
+/* 卡片内 - blue（绿棕斑马） */
+.card-button.blue {
+  background:
+    repeating-linear-gradient(
+      45deg,
+      rgba(0, 94, 96, 0.28),
+      rgba(0, 94, 96, 0.28) 10px,
+      rgba(158, 86, 74, 0.28) 10px,
+      rgba(158, 86, 74, 0.28) 20px
+    ),
+    rgba(255, 255, 255, 0.05);
+
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+
+  border: 2px solid #07C160;
+  color: #07C160;
+
+  width: 120px;
+  padding: 10px 0;
+  font-size: 14px;
+  font-weight: normal;
+  text-align: center;
+  border-radius: 24px;
+  text-decoration: none;
+
+  box-shadow: 0 0 6px rgba(7, 193, 96, 0.3);
+  box-sizing: border-box;
+  transition: all 0.3s ease;
+}
+/* 页脚按钮样式（与卡片内按钮独立） */
+.footer-button {
+  padding: 10px 0;
+  font-size: 14px;
+  border-radius: 24px;
+  background: #333;
+  color: white;
+  border: none;
+  cursor: pointer;
+  width: 120px;
+  text-align: center;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.footer-button-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px; /* 统一按钮间距 */
+  flex-wrap: wrap;
+  margin-bottom: 0px;
+}
+.red-button, .green-button {
+  display: inline-block;
+  padding: 10px 0;
+  width: 120px;
+  text-align: center;
+  font-size: 14px;
+  border-radius: 24px;
+  transition: background-color 0.3s, transform 0.2s;
+}
+/*第一排最左边 小红书主页按钮 */
+.red-footer-button {
+  background-color: #FF2D55;
+  color: white;
+  text-decoration: none;
+  box-shadow: 0 4px 12px rgba(255, 45, 85, 0.4);
+}
+.red-footer-button:hover {
+  background-color: #e02649;
+  transform: translateY(-2px);
+}
+/* 第一排中间边 - 微信公众号按钮（玻璃蓝描边） */
+.glass {
+  background:
+    repeating-linear-gradient(
+      45deg,
+      rgba(7, 193, 96, 0.25),
+      rgba(7, 193, 96, 0.25) 10px,
+      rgba(7, 193, 96, 0.1) 10px,
+      rgba(7, 193, 96, 0.1) 20px
+    ),
+    rgba(255, 255, 255, 0.05);
+
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 2px solid #07C160;
+  color: #07C160;
+  font-weight: normal;
+  font-size: 14px;
+  width: 120px;
+  padding: 10px 0;
+  text-align: center;
+  border-radius: 24px;
+  box-shadow: 0 0 8px rgba(7, 193, 96, 0.4);
+  box-sizing: border-box;
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+.glass:hover {
+  background:
+    repeating-linear-gradient(
+      45deg,
+      rgba(214, 195, 161, 0.25),
+      rgba(214, 195, 161, 0.25) 10px,
+      rgba(214, 195, 161, 0.1) 10px,
+      rgba(214, 195, 161, 0.1) 20px
+    ),
+    rgba(255, 255, 255, 0.08);
+
+  border: 2px solid rgba(214, 195, 161, 1);
+  color: rgba(214, 195, 161, 1);
+  box-shadow: 0 0 14px rgba(214, 195, 161, 0.4);
+  transform: translateY(-2px);
+}
+
+/* 第一排最右边 - 联系我们按钮（藤花紫条纹） */
+.purple-striped-button {
+  background-color: #B497BD; /* 藤花紫 */
+  background-image: repeating-linear-gradient(
+    45deg,
+    rgba(255, 255, 255, 0.12) 0,
+    rgba(255, 255, 255, 0.12) 4px,
+    transparent 4px,
+    transparent 8px
+  );
+  color: white;
+  text-decoration: none;
+  padding: 10px 0;
+  width: 120px;
+  font-size: 14px;
+  text-align: center;
+  border-radius: 24px;
+  box-shadow: 0 4px 12px rgba(180, 151, 189, 0.4);
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.purple-striped-button:hover {
+  background-color: #9c7aa7; /* hover 更深一点 */
+  transform: translateY(-2px);
+}
+/* 第二排中间 - 小丑猫主页按钮（蓝） */
+.clown-home-button {
+  background-color: #efcbca;
+  color: #79c0f0;
+  border-radius: 24px;
+  padding: 10px 0;
+  font-size: 14px;
+  width: 120px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.clown-home-button:hover {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* 添加阴影 */
+}
+
+
+
+/* 未引用 - 微信公众号按钮（绿棕斑马） */
+.zebra-glass {
+  background:
+    repeating-linear-gradient(
+      45deg,
+      rgba(0, 94, 96, 0.28),
+      rgba(0, 94, 96, 0.28) 10px,
+      rgba(158, 86, 74, 0.28) 10px,
+      rgba(158, 86, 74, 0.28) 20px
+    ),
+    rgba(255, 255, 255, 0.05);
+
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+
+  border: 2px solid #07C160;
+  color: #07C160;
+
+  width: 120px;
+  padding: 10px 0;
+  font-size: 14px;
+  font-weight: normal;
+  text-align: center;
+  border-radius: 24px;
+  text-decoration: none;
+
+  box-shadow: 0 0 6px rgba(7, 193, 96, 0.3);
+  box-sizing: border-box;
+  transition: all 0.3s ease;
+}
+.zebra-glass:hover {
+  background:
+    repeating-linear-gradient(
+      45deg,
+      #005e60 0px,
+      #005e60 10px,
+      #9e564a 10px,
+      #9e564a 20px
+    ),
+    rgba(255, 255, 255, 0.05);
+
+  border: 2px solid #07C160;
+  color: #07C160;
+
+  box-shadow:
+    0 0 8px rgba(7, 193, 96, 0.4),
+    inset 0 0 2px rgba(7, 193, 96, 0.2);
+
+  transform: translateY(-2px);
+  text-decoration: none;
+}
+/* 未引用 - 微信表情包按钮（蓝青斑马） */
+.zebra-blue-glass {
+  background:
+    repeating-linear-gradient(
+      45deg,
+      rgba(0, 103, 184, 0.28),
+      rgba(0, 103, 184, 0.28) 10px,
+      rgba(55, 184, 250, 0.28) 10px,
+      rgba(55, 184, 250, 0.28) 20px
+    ),
+    rgba(255, 255, 255, 0.05);
+
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+
+  border: 2px solid #07C160;
+  color: #07C160;
+
+  width: 120px;
+  padding: 10px 0;
+  font-size: 14px;
+  font-weight: normal;
+  text-align: center;
+  border-radius: 24px;
+  text-decoration: none;
+
+  box-shadow: 0 0 6px rgba(7, 193, 96, 0.3);
+  box-sizing: border-box;
+  transition: all 0.3s ease;
+}
+
+.zebra-blue-glass:hover {
+  background:
+    repeating-linear-gradient(
+      45deg,
+      #0067b8 0px,
+      #0067b8 10px,
+      #37b8fa 10px,
+      #37b8fa 20px
+    ),
+    rgba(255, 255, 255, 0.05);
+
+  border: 2px solid #07C160;
+  color: #07C160;
+
+  box-shadow:
+    0 0 8px rgba(7, 193, 96, 0.4),
+    inset 0 0 2px rgba(7, 193, 96, 0.2);
+
+  transform: translateY(-2px);
+  text-decoration: none;
+}
+footer {
+  font-size: 12px;
+  color: #666;
+  margin: 12px 0;
+  line-height: 1.4;
+}
+
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: #121212;
+    color: #f0f0f0;
+  }
+  .swiper-slide {
+    background: #1e1e1e;
+    box-shadow: 0 4px 12px rgba(255, 255, 255, 0.1);
+  }
+  .red-button {
+    background-color: #ff4c6a;
+  }
+  .red-button:hover {
+    background-color: #e03754;
+  }
+  footer {
+    color: #aaa;
+  }
+}
+.qr-popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0,0,0,0.6);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+.qr-box {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+}
+.qr-box img {
+  width: 200px;
+  height: 200px;
+}
+.qr-box button {
+  margin-top: 12px;
+  padding: 6px 16px;
+  background-color: #FF2D55;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+.qr-box button:hover {
+  background-color: #e02649;
+}
+#tagline::after {
+  content: "|"; /* 显示光标符号 */
+  animation: blink 1s step-start infinite;
+  margin-left: 4px; /* 留出一点空隙 */
+  font-weight: bold;
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+.swiper-slide {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.card-content {
+  position: absolute;
+  bottom: 20px;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  color: black;
+}
+.card-title {
+  margin: 0;
+  font-size: 14px;
+  font-weight: bold;
+}
+.card-button {
+  margin-top: 6px;
+  padding: 6px 16px;
+  background-color: #000;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+}
+.card-button:hover {
+  background-color: #333;
+}
+
+
+/* ===================== 卡片内部按钮 ===================== */
+.card-content {
+  position: absolute;
+  bottom: 20px;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  color: inherit;
+}
+
+.card-title {
+  margin: 0;
+  font-size: 14px;
+  font-weight: bold;
+  color: inherit;
+}
+
+/* 基础按钮样式 */
+.card-button {
+  display: inline-block;
+  min-width: 120px;
+  padding: 10px 0;
+  font-size: 14px;
+  text-align: center;
+  border-radius: 24px;
+  text-decoration: none !important;
+  transition: all 0.3s ease;
+  font-weight: normal;
+  border: none;
+  cursor: pointer;
+}
+
+/* 悬停通用动画 */
+.card-button:hover {
+  transform: translateY(-2px);
+  opacity: 0.9;
+}
+
+/* 红色按钮 */
+.card-button.red {
+  background-color: #FF2D55;
+  color: white;
+  box-shadow: 0 4px 12px rgba(255, 45, 85, 0.4);
+}
+
+/* 玻璃按钮 */
+.card-button.glass {
+  background: rgba(255,255,255,0.08);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255,255,255,0.2);
+  color: white;
+}
+
+/* 斑马纹按钮 */
+.card-button.zebra {
+  background: repeating-linear-gradient(
+    45deg,
+    rgba(0, 0, 0, 0.1),
+    rgba(0, 0, 0, 0.1) 10px,
+    rgba(255, 255, 255, 0.1) 10px,
+    rgba(255, 255, 255, 0.1) 20px
+  );
+  color: black;
+  border: 1px solid #000;
+}
+
+/* 蓝绿斑马按钮 */
+.card-button.blue {
+  background:
+    repeating-linear-gradient(
+      45deg,
+      rgba(0, 94, 96, 0.28),
+      rgba(0, 94, 96, 0.28) 10px,
+      rgba(158, 86, 74, 0.28) 10px,
+      rgba(158, 86, 74, 0.28) 20px
+    ),
+    rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 2px solid #07C160;
+  color: #07C160;
+  box-shadow: 0 0 6px rgba(7, 193, 96, 0.3);
+}
+
+/* ===================== 卡片外按钮 保持原样 ===================== */
+/* 保留 .red-button、.glass、.zebra-glass、.purple-striped-button 等 */
+/* 快捷指令风格背景卡片容器：纵向按钮布局 */
+/* 模块化容器：自动并排排列多个快捷卡片 */
+.footer-button-group {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 16px;
+  margin: 24px auto;
+}
+
+/* 单个背景卡片容器，尺寸适配内容 */
+.footer-shortcut-card {
+  background: linear-gradient(135deg, #cfe9f1, #e5f3f9);
+  border-radius: 20px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  width: fit-content;
+  max-width: 140px;  /* ✅ 你可以尝试调整这个数值，比如 130px、120px */
+}
+/* 悬停浮起效果（可选） */
+.footer-shortcut-card:hover {
+  transform: translateY(-3px);
+  transition: all 0.3s ease;
+  box-shadow: 0 10px 24px rgba(0,0,0,0.1);
+}
+
+
+/* 背景墙图片容器 */
+.background-wall {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  overflow: hidden;
+  opacity: 0.15;  /* 背景透明度，可自行调整 */
+  pointer-events: none;
+  mask-image: linear-gradient(to bottom, rgba(0,0,0,1), rgba(0,0,0,0.6));
+}
+
+.wall-brick-bg {
+  width: 4000px;  /* 设得比屏幕宽，才能滑动 */
+  height: 100%;
+  background-image: url("images/wall-bricks.png");
+  background-size: cover;          /* 保证完整填充 */
+  background-repeat: repeat-y;     /* 如果你的砖墙竖向可重复，可开启 */
+  animation: scrollWall 60s linear infinite;
+  filter: blur(0.2px);             /* 可选模糊，0表示无模糊 */
+}
+
+@keyframes scrollWall {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-2000px); }  /* 左移 2000px 后循环 */
+}
+
+/* 卡片透明化，便于看见背景 */
+.shortcut-card {
+  background: transparent !important;
+  backdrop-filter: none !important;
+  box-shadow: none !important;
+}
